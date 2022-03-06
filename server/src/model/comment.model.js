@@ -12,4 +12,4 @@ const comment = new Schema({
     timestamps : { currentTime: () => Math.floor(Date.now()) }
 })
 
-export default mongoose.model('idea', idea)
+export default mongoose.model('comment', comment)
