@@ -1,6 +1,6 @@
 import  express  from 'express'
 import db from './config/db.js'
-import path from 'path'
+import 'dotenv/config'
 const app = express();
 
 app.use(express.json());
@@ -11,4 +11,4 @@ const run = async () => {
 }
 run();
 
-app.listen(3000, ()=> console.log('Server is running !'))
+app.listen(process.env.PORT, ()=> console.log('Server is running !'))
