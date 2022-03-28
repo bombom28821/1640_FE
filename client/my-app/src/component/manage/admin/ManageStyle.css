@@ -1,0 +1,192 @@
+.manage-navbar {
+  display: flex;
+  justify-content: flex-end;
+  margin: 20px 20px 0 0;
+  position: relative;
+}
+.manage-info {
+  display: flex;
+  align-items: center;
+  column-gap: 10px;
+  color: #818181;
+  cursor: pointer;
+  font-weight: 500;
+}
+.active .manage-info {
+  color: #050505;
+}
+.manage-infoImg {
+  width: 40px;
+  height: 40px;
+  border-radius: 100%;
+}
+.manage-infoImg img {
+  width: 100%;
+  height: 100%;
+  border-radius: 100%;
+}
+.manage-nameUser,
+.manage-icon {
+  align-self: flex-end;
+}
+.manage-icon {
+  align-self: flex-end;
+  font-size: 18px;
+}
+.manage-dropdown {
+  background-color: #ffffff;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  position: absolute;
+  top: 50px;
+  right: 0;
+  padding: 20px 0;
+  border-radius: 10px;
+  z-index: 10;
+}
+.manage-dropdown ul {
+  width: 100%;
+  height: 100%;
+  list-style: none;
+  padding: 0;
+  margin-bottom: 0;
+}
+.manage-dropdown ul li {
+  padding: 0 10px;
+}
+.manage-dropdown ul li a {
+  text-decoration: none;
+  color: #050505;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  column-gap: 10px;
+  padding: 12px 25px;
+  border-radius: 5px;
+  transition: all 0.3s;
+}
+.manage-dropdown ul li a:hover {
+  background-color: #f2f3f5;
+}
+.manage-dropdownIcon {
+  width: 35px;
+  height: 35px;
+  border-radius: 100rem;
+  background-color: #e4e6eb;
+  display: flex;
+  justify-content: center;
+}
+.manage-dropdownIcon i {
+  line-height: 33px;
+}
+.manage-main {
+  padding: 50px 50px 30px 50px;
+  color: var(--color-gray-1);
+}
+.manage-cs {
+  padding: 40px 0 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.manage-create a {
+  padding: 15px 20px;
+  color: var(--color-purple-1);
+  text-decoration: none;
+  font-weight: 600;
+  border: 1px solid var(--color-purple-1);
+  border-radius: 10px;
+  transition: all 0.5s;
+}
+.manage-create a:hover {
+  color: var(--color-white-1);
+  background-color: var(--color-purple-1);
+}
+.manage-search {
+  flex-grow: 1;
+  display: flex;
+  justify-content: flex-end;
+  position: relative;
+}
+.manage-search input {
+  padding: 15px 20px;
+  width: 30%;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  border-radius: 10px;
+}
+.manage-search span {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  width: 52px;
+  height: 54px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+.manage-search span i {
+  font-size: 18px;
+  font-weight: 600;
+}
+.manage-search span i:hover {
+  color: var(--color-purple-1);
+}
+.manage-roleAccount {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 50px;
+}
+.manage-roleAccount span {
+  font-size: 22px;
+  font-weight: 600;
+  padding-right: 20px;
+}
+.manage-roleAccount select {
+  padding: 10px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  border-radius: 6px;
+}
+.manage-roleAccount select option {
+  font-size: 18px;
+  color: var(--color-gray-1);
+}
+.manage-tableAccount {
+  width: 100%;
+  margin-bottom: 20px;
+  background-color: var(--color-white-1);
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  border-radius: 15px;
+  padding-left: 30px;
+}
+.manage-tableAccount th:first-child {
+  padding-left: 60px;
+}
+.manage-tableAccount thead {
+  border-bottom: 1px solid rgba(149, 157, 165, 0.2);
+}
+.manage-tableAccount th,
+.manage-tableAccount td {
+  padding: 15px;
+}
+.manage-tableAccount td:nth-child(2) img {
+  width: 100px;
+  height: 120px;
+}
+.manage-tableAccount tbody tr:not(:last-child) {
+  border-bottom: 1px solid rgba(149, 157, 165, 0.2);
+}
+.manage-tableAccount td {
+  color: var(--color-gray-1);
+  letter-spacing: 1px;
+}
+.manage-tableAccount td:last-child a {
+  text-decoration: none;
+  color: var(--color-purple-1);
+  font-size: 22px;
+  font-weight: 600;
+  transition: all 0.5s;
+}
+.manage-tableAccount td:last-child a:hover {
+  color: var(--color-purple-2);
+}

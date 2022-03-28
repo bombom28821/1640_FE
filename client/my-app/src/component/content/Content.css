@@ -1,0 +1,331 @@
+.content-main {
+  width: 60%;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+.content-search {
+  width: 100%;
+  margin-bottom: 30px;
+  padding-top: 30px;
+  position: relative;
+}
+.content-search input {
+  width: 100%;
+  background-color: #ffffff;
+  padding: 16px 20px;
+  border-radius: 12px;
+  box-shadow: rgba(149, 157, 165, 0.2) 2px 4px 10px;
+}
+.content-search span {
+  position: absolute;
+  top: 43px;
+  right: 20px;
+  color: #d8d5d5;
+  font-size: 20px;
+  cursor: pointer;
+}
+.content-post {
+  background-color: #ffffff;
+  border-radius: 20px;
+  box-shadow: rgba(149, 157, 165, 0.2) 2px 4px 10px;
+  padding-top: 10px;
+  margin-bottom: 40px;
+}
+.content-post:last-child {
+  margin-bottom: 10px;
+}
+.content-user {
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+}
+.content-avatar {
+  width: 50px;
+  height: 50px;
+}
+.content-avatar img {
+  width: 100%;
+  height: 100%;
+  border-radius: 100%;
+  object-fit: cover;
+}
+.content-userInfo {
+  padding-left: 10px;
+}
+.content-userInfo h3 {
+  font-size: 20px;
+  font-weight: 600;
+  padding-top: 10px;
+  margin-bottom: 0;
+}
+.content-userInfo span {
+  font-size: 12px;
+  color: #a6a6a6;
+}
+.content-title {
+  padding: 0 20px;
+  margin: 10px 0;
+  font-weight: 500;
+}
+.content-image {
+  width: 100%;
+  height: 450px;
+}
+.content-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.content-countStatus {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 15px;
+}
+.content-countEmotion {
+  display: flex;
+}
+.content-countLike,
+.content-countDislike {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  position: relative;
+}
+
+.content-listUserLike,
+.content-listUserDislike {
+  position: absolute;
+  top: 23px;
+  left: 0;
+  transform: translateX(-48%);
+  padding: 10px;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: #f0f2f5;
+  border-radius: 10px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  width: 160px;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s;
+  cursor: default;
+}
+.content-countLike:hover .content-listUserLike,
+.content-countDislike:hover .content-listUserDislike {
+  opacity: 1;
+  visibility: visible;
+}
+.content-listUserLike p,
+.content-listUserDislike p {
+  margin-bottom: 4px;
+  font-weight: 600;
+}
+.content-listUserLike span,
+.content-listUserDislike span {
+  font-size: 12px;
+  display: block;
+  line-height: 17px;
+}
+.content-countDislike {
+  margin-right: 8px;
+}
+.content-countAll span,
+.content-countStatusRight span {
+  color: #65676b;
+  cursor: pointer;
+}
+.content-countAll span:hover,
+.content-countStatusRight span:hover {
+  text-decoration: underline;
+}
+.content-countStatusLeft img {
+  width: 100%;
+  height: 100%;
+}
+.content-line {
+  height: 1px;
+  width: calc(100% - 30px);
+  margin: 0 auto;
+  background-color: #ecf0f1;
+}
+.content-status {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin: 0 15px;
+  padding: 5px 0;
+}
+.content-status.content-statusLine {
+  border-bottom: 1px solid #ecf0f1;
+}
+.content-statusItem {
+  display: flex;
+  column-gap: 10px;
+  width: 100%;
+  justify-content: center;
+  padding: 5px 0;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.content-statusItem:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+.content-statusItem span i {
+  color: #d5d9da;
+  font-size: 20px;
+}
+.content-statusItem:nth-child(2) span i {
+  transform: rotate(180deg);
+  margin-top: 2px;
+}
+.content-statusItem span:last-child {
+  color: #4d4c4c;
+  font-weight: 600;
+}
+.content-statusItem:first-child.active span,
+.content-statusItem:first-child.active span i {
+  color: #1877f2;
+}
+.content-statusItem:nth-child(2).active span,
+.content-statusItem:nth-child(2).active span i {
+  color: #eb4d4b;
+}
+.content-statusItem:first-child.active span i {
+  animation: like 1s 0.3s ease-in-out 1;
+}
+.content-statusItem:nth-child(2).active span i {
+  animation: dislike 1s 0.3s ease-in-out 1;
+}
+.content-showComments {
+  padding: 16px;
+}
+.content-createComment {
+  display: flex;
+  column-gap: 10px;
+  align-items: center;
+}
+.content-createCommentUser {
+  width: 32px;
+  height: 32px;
+  border-radius: 100rem;
+}
+.content-createCommentUser img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: inherit;
+}
+.content-createCommentContent {
+  flex-grow: 1;
+}
+.content-createCommentContent form {
+  width: 100%;
+  position: relative;
+}
+.content-createCommentMain textarea {
+  width: 100%;
+  background-color: #f0f2f5;
+  padding: 8px 12px;
+  border-radius: 18px;
+  color: #050505;
+  font-size: 16px;
+  resize: none;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+.content-createCommentContent form ul {
+  list-style: none;
+  position: absolute;
+  right: 0px;
+  bottom: 0px;
+  margin-bottom: 0;
+  display: flex;
+  align-items: center;
+  padding-left: 0;
+}
+.content-createCommentContent form li {
+  display: inline-block;
+  width: 38px;
+  height: 38px;
+  border-radius: 100rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.3s;
+  position: relative;
+}
+.content-createCommentContent form li:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.content-createCommentContent form ul span i {
+  color: #5d5e5f;
+}
+.content-createCommentDelete,
+.content-createCommentSend {
+  position: absolute;
+  padding: 8px;
+  background-color: rgba(0, 0, 0, 0.8);
+  border-radius: 8px;
+  top: 0;
+  right: 0;
+  transform: translate(30%, -80%);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s;
+  width: 110px;
+}
+.content-createCommentContent
+  form
+  li:first-child:hover
+  .content-createCommentDelete,
+.content-createCommentContent
+  form
+  li:last-child:hover
+  .content-createCommentSend {
+  opacity: 1;
+  visibility: visible;
+}
+.content-createCommentDelete p,
+.content-createCommentSend p {
+  margin-bottom: 0;
+  color: #f0f2f5;
+  font-size: 12px;
+}
+.content-listComments {
+  padding-top: 10px;
+}
+.content-loading {
+  color: #51459f;
+  margin-bottom: 70px;
+}
+.content-loadMore {
+  height: 1px;
+  margin-bottom: 20px;
+}
+
+/* KEY FRAMES */
+@keyframes like {
+  0% {
+    transform: rotate(0) scale(1);
+  }
+  50% {
+    transform: rotate(-10deg) scale(1.1);
+  }
+  100% {
+    transform: rotate(0) scale(1);
+  }
+}
+@keyframes dislike {
+  0% {
+    transform: rotate(180deg) scale(1);
+  }
+  50% {
+    transform: rotate(190deg) scale(1.1);
+  }
+  100% {
+    transform: rotate(180deg) scale(1);
+  }
+}

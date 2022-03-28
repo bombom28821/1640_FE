@@ -1,0 +1,34 @@
+.manage-paginationContent {
+  display: flex;
+  background-color: #ffffff;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  border-radius: 8px;
+}
+.manage-paginationItem {
+  padding: 12px;
+}
+.manage-paginationItem.active .manage-paginationLink {
+  color: #3219ce;
+  border: 1px solid #3219ce;
+}
+.manage-paginationLink {
+  text-decoration: none;
+  color: #32313a;
+  font-size: 20px;
+  font-weight: 600;
+  padding: 2px 10px;
+  border-radius: 5px;
+}
+.manage-paginationLink:hover {
+  color: #3219ce;
+}
+.manage-paginationLinkPrev,
+.manage-paginationLinkNext {
+  color: #3219ce;
+}
+.manage-disabled {
+  opacity: 0.5;
+}
