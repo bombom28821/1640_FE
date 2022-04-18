@@ -1,4 +1,4 @@
-.manage-navbar {
+.manage .manage-navbar {
   display: flex;
   justify-content: flex-end;
   margin: 20px 20px 0 0;
@@ -82,6 +82,7 @@
 .manage-main {
   padding: 50px 50px 30px 50px;
   color: var(--color-gray-1);
+  width: 84%;
 }
 .manage-cs {
   padding: 40px 0 50px;
@@ -91,16 +92,16 @@
 }
 .manage-create a {
   padding: 15px 20px;
-  color: var(--color-purple-1);
+  color: #1b74e4;
   text-decoration: none;
   font-weight: 600;
-  border: 1px solid var(--color-purple-1);
+  border: 1px solid #1b74e4;
   border-radius: 10px;
   transition: all 0.5s;
 }
 .manage-create a:hover {
   color: var(--color-white-1);
-  background-color: var(--color-purple-1);
+  background-color: #1b74e4;
 }
 .manage-search {
   flex-grow: 1;
@@ -130,7 +131,7 @@
   font-weight: 600;
 }
 .manage-search span i:hover {
-  color: var(--color-purple-1);
+  color: #1b74e4;
 }
 .manage-roleAccount {
   display: flex;
@@ -182,11 +183,126 @@
 }
 .manage-tableAccount td:last-child a {
   text-decoration: none;
-  color: var(--color-purple-1);
+  color: #1b74e4;
   font-size: 22px;
   font-weight: 600;
   transition: all 0.5s;
 }
 .manage-tableAccount td:last-child a:hover {
-  color: var(--color-purple-2);
+  color: #2b7ce0;
+}
+.manage-chooseDate {
+  text-align: center;
+  margin-bottom: 20px;
+}
+.manage-chooseDate span {
+  color: #817f7f;
+  font-size: 20px;
+  margin-right: 10px;
+}
+.manage-chooseDate select {
+  color: #817f7f;
+  padding: 10px 15px;
+  background-color: var(--color-white-1);
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  border-radius: 6px;
+  margin-right: 10px;
+}
+.manage-chooseDate button {
+  padding: 10px 20px;
+  border-radius: 6px;
+  color: var(--color-white-1);
+  font-weight: 500;
+}
+.manage-chooseDate button:first-of-type {
+  margin-right: 10px;
+  background-color: #1b74e4;
+}
+.manage-chooseDate button:last-of-type {
+  background-color: #f55d42;
+}
+.navbar-manage {
+  display: none;
+}
+
+/* MAX-WIDTH: 1250PX */
+@media screen and (max-width: 1250px) {
+  .navbar-manage {
+    display: block;
+  }
+  .manage-main {
+    padding-top: 80px;
+    width: 100%;
+  }
+  .manage-account .manage-listAccount .manage-tableAccount th:first-child {
+    padding-left: 10px;
+  }
+}
+/* MAX-WIDTH: 992PX */
+@media screen and (max-width: 992px) {
+  .manage-cs .manage-search input {
+    width: 50%;
+  }
+  .manage-account .manage-tableAccount th:nth-last-child(2),
+  .manage-account .manage-tableAccount th:nth-last-child(3) {
+    display: none;
+  }
+  .manage-account .manage-tableAccount td:nth-last-child(2),
+  .manage-account .manage-tableAccount td:nth-last-child(3) {
+    display: none;
+  }
+  .manage-account .manage-listAccount .manage-tableAccount td:last-child a {
+    font-size: 20px;
+  }
+}
+/* MAX-WIDTH: 768PX */
+@media screen and (max-width: 768px) {
+  .manage-main {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  .manage-account .manage-tableAccount th:nth-child(2) {
+    display: none;
+  }
+  .manage-account .manage-tableAccount td:nth-child(2) {
+    display: none;
+  }
+  .manage-cs .manage-search input {
+    width: 70%;
+  }
+}
+/* MAX-WIDTH: 576PX */
+@media screen and (max-width: 576px) {
+  .manage-cs .manage-create a {
+    padding: 8px 12px;
+    border-radius: 6px;
+    white-space: nowrap;
+  }
+  .manage-cs .manage-search input {
+    padding: 8px 12px;
+    width: 92%;
+    border-radius: 6px;
+  }
+  .manage-cs .manage-search span {
+    width: 42px;
+    height: 40px;
+  }
+  .manage-account .manage-listAccount .manage-tableAccount td:last-child a {
+    font-size: 18px;
+  }
+  .manage-account .manage-tableAccount th:nth-child(3) {
+    display: none;
+  }
+  .manage-account .manage-tableAccount td:nth-child(3) {
+    display: none;
+  }
+  .manage-roleAccount > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 10px;
+  }
+  .manage-roleAccount select {
+    padding: 8px;
+  }
 }

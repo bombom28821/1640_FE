@@ -11,8 +11,8 @@
   padding: 12px;
 }
 .manage-paginationItem.active .manage-paginationLink {
-  color: #3219ce;
-  border: 1px solid #3219ce;
+  color: #2b7ce0;
+  border: 1px solid #2b7ce0;
 }
 .manage-paginationLink {
   text-decoration: none;
@@ -23,12 +23,25 @@
   border-radius: 5px;
 }
 .manage-paginationLink:hover {
-  color: #3219ce;
+  color: #2b7ce0;
 }
 .manage-paginationLinkPrev,
 .manage-paginationLinkNext {
-  color: #3219ce;
+  color: #2b7ce0;
 }
 .manage-disabled {
   opacity: 0.5;
+}
+
+/* MAX-WIDTH: 768PX */
+@media screen and (max-width: 768px) {
+  .manage-paginationItem {
+    padding: 8px;
+  }
+}
+/* MAX-WIDTH: 576PX */
+@media screen and (max-width: 576px) {
+  .manage-paginationItem {
+    padding: 4px;
+  }
 }

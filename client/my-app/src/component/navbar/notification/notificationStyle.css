@@ -1,0 +1,131 @@
+.navbar-notifications {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background-color: var(--color-white-1);
+  transform: translate(-20px, 99%);
+  border-radius: 10px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  height: 520px;
+  max-width: 400px;
+}
+.navbar-notificationsInside {
+  width: 99%;
+  height: 100%;
+  border-radius: inherit;
+  padding: 18px;
+  overflow-y: scroll;
+}
+.navbar-notificationsInside::-webkit-scrollbar {
+  width: 10px;
+  height: 100px;
+}
+
+/* Track */
+.navbar-notificationsInside::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Handle */
+.navbar-notificationsInside::-webkit-scrollbar-thumb {
+  background-color: transparent;
+  border-radius: 5px;
+  transition: all 0.3s;
+}
+.navbar-notificationsInside:hover::-webkit-scrollbar-thumb {
+  height: 50px;
+
+  background-color: rgb(198, 198, 198);
+}
+/* Handle on hover */
+.navbar-notificationsInside::-webkit-scrollbar-thumb:hover {
+  background: rgb(180, 179, 179);
+}
+.navbar-notificationTitle {
+  margin-bottom: 10px;
+}
+.navbar-notificationTitle span {
+  font-size: 25px;
+  font-weight: 700;
+}
+.navbar-notificationNew {
+  margin-bottom: 20px;
+}
+.navbar-notificationAll {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #050505;
+}
+.navbar-notificationAll span:first-child {
+  font-weight: 600;
+  font-size: 18px;
+}
+.navbar-notificationAll span:last-child {
+  color: #216fdb;
+  padding: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.navbar-notificationAll span:last-child:hover {
+  background-color: rgba(0, 0, 0, 0.06);
+}
+.navbar-notificationContent {
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+}
+.navbar-notificationItem {
+  display: flex;
+  column-gap: 10px;
+  align-items: center;
+  cursor: pointer;
+  padding: 5px;
+  border-radius: 10px;
+  transition: all 0.3s;
+}
+.navbar-notificationItem:hover {
+  background-color: rgba(0, 0, 0, 0.08);
+}
+.navbar-notificationImg {
+  width: 60px;
+  height: 60px;
+  border-radius: 100rem;
+}
+.navbar-notificationImg img {
+  width: 100%;
+  height: 100%;
+  border-radius: 100rem;
+  object-fit: cover;
+  border-radius: inherit;
+}
+.navbar-notificationMain {
+  word-wrap: break-word;
+  color: #050505;
+}
+.navbar-notificationMain span:first-child,
+.navbar-notificationMain span:nth-child(3) {
+  font-weight: 600;
+}
+.navbar-notificationMain span:nth-child(2) {
+  padding: 0 5px;
+}
+.navbar-notificationMain p {
+  margin-bottom: 0;
+  color: hsl(214, 89%, 52%);
+  font-weight: 500;
+  font-size: 13px;
+}
+.navbar-notificationEarlier > span {
+  font-weight: 700;
+  font-size: 18px;
+}
+.navbar-notificationEarlier .navbar-notificationContent {
+  padding-top: 15px;
+}
+@media screen and (max-width: 768px) {
+  .navbar-notifications {
+    max-width: 300px;
+  }
+}

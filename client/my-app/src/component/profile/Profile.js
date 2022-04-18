@@ -1,8 +1,12 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import "./profile.css";
+import useAuth from "../../hook/useAuth";
+import { NavLink } from "react-router-dom";
 const arrayTemp = Array(21).fill(null);
 const Profile = () => {
-  const [seeAll, setSeeAll] = useState(true);
+  // Call User login
+  const { auth } = useAuth();
+  const [viewPhotos, setViewPhotos] = useState("All Photos");
   const [countImg, setCountImg] = useState(() => {
     const array = arrayTemp;
     if (arrayTemp.length < 10) {
@@ -11,90 +15,77 @@ const Profile = () => {
       return array.slice(0, 9);
     }
   });
-  const handleSeeAllPost = () => {
-    setCountImg(arrayTemp);
-    setSeeAll(!seeAll);
+  const photoRef = useRef();
+  const handleViewPhotos = () => {
+    if (viewPhotos === "All Photos") {
+      setViewPhotos("Shorten Photos");
+      setCountImg(arrayTemp);
+    } else {
+      const arraySlice = arrayTemp.slice(0, 9);
+      setCountImg(arraySlice);
+      setViewPhotos("All Photos");
+    }
   };
-  const handleShortened = () => {
-    const arraySlice = arrayTemp.slice(0, 9);
-    setCountImg(arraySlice);
-    setSeeAll(!seeAll);
-  };
+
   return (
-    <div className="col-2 profile">
+    <div className="profile">
       <div className="profile-top">
-        <div className="profile-left">
-          <a href="#">
-            <i className="fa fa-bell"></i>
-          </a>
-        </div>
         <div className="profile-right">
           <a href="#">
-            <i className="fa fa-user-graduate"></i>
+            <i className="fa fa-bell"></i>
           </a>
         </div>
       </div>
       <div className="profile-content">
         <div className="profile-img">
-          <img
-            src="https://luv.vn/wp-content/uploads/2021/07/hinh-nen-Pikachu-Cute-2.jpg"
-            alt=""
-          />
+          {auth?.avatar && (
+            <img src={`${auth.url}/${auth.avatar}`} alt="avatarUser" />
+          )}
         </div>
         <div className="profile-info">
-          <h4>Bombom</h4>
-          <p>bomntgch190607@fpt.edu.vn</p>
+          <h4>{auth.name}</h4>
+          <p>{auth.email}</p>
         </div>
         <div className="profile-change">
           <div className="profile-personal">
-            <a href="#" className="profile-view">
+            <NavLink to="/view-profile" className="profile-view">
               View Profile
-            </a>
-            <a href="#" className="profile-update">
+            </NavLink>
+            <NavLink to="/edit-profile" className="profile-update">
               Edit Profile
-            </a>
+            </NavLink>
           </div>
         </div>
       </div>
-      <div className="profile-listpost">
-        {countImg.map((item, index) => (
-          <a
-            href="#index"
-            key={index}
-            className={`${
-              countImg.length % 3 === 0 &&
-              (index === 0 || index === countImg.length - 3)
-                ? "profile-imgRoundedLeft"
-                : ""
-            } ${
-              countImg.length % 3 === 0 &&
-              (index === 2 || index === countImg.length - 1)
-                ? "profile-imgRoundedRight"
-                : ""
-            }`}
-          >
-            <img
-              src="https://images.unsplash.com/photo-1647103575551-2e83159d3370?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw0fHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=500&q=60"
-              alt=""
-            />
-          </a>
-        ))}
-      </div>
-      <div className="profile-seeAllPost">
-        <span onClick={handleShortened}>
-          {!seeAll && (
-            <span>
-              <i className="fa fa-long-arrow-alt-left"></i> Shortened
-            </span>
-          )}
-        </span>
-        <span onClick={handleSeeAllPost}>
-          {seeAll && (
-            <span>
-              See all <i className="fa fa-long-arrow-alt-right"></i>
-            </span>
-          )}
-        </span>
+      <div ref={photoRef} className="profile-listImageView">
+        <div className="seeAllPhotos">
+          <span>Photos</span>
+          <span onClick={handleViewPhotos}>{viewPhotos}</span>
+        </div>
+        <div className="listPhotos">
+          {countImg.map((item, index) => (
+            <a
+              href="#index"
+              key={index}
+              className={`${
+                countImg.length % 3 === 0 &&
+                (index === 0 || index === countImg.length - 3)
+                  ? "photo-imgRoundedLeft"
+                  : ""
+              } ${
+                countImg.length % 3 === 0 &&
+                (index === 2 || index === countImg.length - 1)
+                  ? "photo-imgRoundedRight"
+                  : ""
+              }`}
+            >
+              <img
+                src="https://images.unsplash.com/photo-1647103575551-2e83159d3370?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw0fHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=500&q=60"
+                alt=""
+              />
+            </a>
+          ))}
+        </div>
       </div>
     </div>
   );

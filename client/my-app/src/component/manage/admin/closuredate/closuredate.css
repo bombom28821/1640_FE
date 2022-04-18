@@ -1,0 +1,169 @@
+.setDate {
+  width: 950px;
+  height: 450px;
+  border-radius: 10px;
+  background-color: var(--color-white-1);
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  overflow-y: scroll;
+  position: relative;
+}
+.setDate-delete {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 40px;
+  height: 40px;
+  border-radius: 100rem;
+  background-color: #e4e6eb;
+  text-align: center;
+  line-height: 40px;
+  transition: all 0.3;
+  cursor: pointer;
+}
+.setDate-delete:hover {
+  background-color: #cecfd4;
+}
+/* Track */
+.setDate::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Handle */
+.setDate::-webkit-scrollbar-thumb {
+  background-color: transparent;
+  border-radius: 5px;
+  transition: all 0.3s;
+}
+.setDate:hover::-webkit-scrollbar-thumb {
+  height: 200px;
+  background-color: rgb(198, 198, 198);
+}
+/* Handle on hover */
+.setDate::-webkit-scrollbar-thumb:hover {
+  background: rgb(180, 179, 179);
+}
+.setDate-main {
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+}
+.setDate-main h2 {
+  text-align: center;
+  font-size: 28px;
+  margin-bottom: 15px;
+}
+.setDate-addTime {
+  display: flex;
+  justify-content: space-between;
+}
+.setDate-addStart,
+.setDate-addEnd {
+  display: flex;
+  align-items: center;
+  column-gap: 10px;
+}
+.setDate-addStart span,
+.setDate-addEnd span {
+  color: #817f7f;
+}
+.setDate-addTime input {
+  padding: 10px;
+  border-radius: 6px;
+  width: 250px;
+  color: #817f7f;
+
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+.setDate-addButtom {
+  margin-top: 30px;
+  text-align: center;
+}
+.setDate-addButtom button {
+  padding: 10px 50px;
+  border-radius: 5px;
+  font-weight: 500;
+  color: var(--color-white-1);
+  background-color: #2b7ce0;
+}
+.setDate-update {
+  margin-top: 30px;
+}
+.manage-tableAccount tr td button {
+  padding: 8px 10px;
+  border-radius: 5px;
+  background-color: #f55d42;
+  color: var(--color-white-1);
+  font-weight: 500;
+}
+
+.manage-tableAccount tr td button:not(:last-child) {
+  margin-right: 20px;
+}
+.manage-tableAccount tr td button:first-child {
+  background-color: rgb(255, 188, 101);
+}
+.manage-tableAccount tr td button:nth-child(3) {
+  background-color: rgb(132, 232, 244);
+}
+.manage-tableAccount tr td button:last-child {
+  background-color: rgb(146, 115, 191);
+}
+.setDate-error {
+  text-align: center;
+  margin-top: 10px;
+  color: rgb(232, 60, 60);
+  font-weight: 500;
+  font-size: 15px;
+}
+/* MAX-WIDTH: 992PX */
+@media screen and (max-width: 992px) {
+  .manage-tableAccount th:first-child {
+    padding-left: 10px;
+  }
+  .setDate {
+    width: 98%;
+  }
+  .manage-tableAccount td:last-child {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 10px;
+  }
+}
+/* MAX-WIDTH: 768PX */
+@media screen and (max-width: 768px) {
+  .setDate-addTime {
+    flex-direction: column;
+    align-items: center;
+    row-gap: 20px;
+  }
+  .setDate {
+    width: 98%;
+    height: 520px;
+  }
+  .manage-tableAccount th:first-child,
+  .manage-tableAccount td:first-child {
+    display: none;
+  }
+}
+/* MAX-WIDTH: 576PX */
+@media screen and (max-width: 576px) {
+  .setDate {
+    height: 540px;
+  }
+  .setDate-main {
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+  .setDate-main h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  .manage-tableAccount tr td button {
+    padding: 6px;
+    border-radius: 5px;
+    font-size: 15px;
+  }
+  .setDate-update .manage-tableAccount tr td button {
+    margin-right: 10px;
+  }
+}

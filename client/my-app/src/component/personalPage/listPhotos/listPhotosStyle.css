@@ -1,0 +1,47 @@
+.seeAllPhotos {
+  margin-bottom: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.seeAllPhotos span:first-child {
+  font-weight: 600;
+  font-size: 22px;
+}
+.seeAllPhotos span:last-child {
+  padding: 8px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-size: 18px;
+  color: #216fdb;
+}
+.seeAllPhotos span:last-child:hover {
+  background-color: rgba(0, 0, 0, 0.06);
+}
+.listPhotos {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3px;
+}
+.listPhotos img {
+  width: 100%;
+  height: 130px;
+  object-fit: cover;
+}
+.photo-imgRoundedLeft:first-child img {
+  border-top-left-radius: 10px;
+}
+.photo-imgRoundedLeft ~ .photo-imgRoundedLeft img {
+  border-bottom-left-radius: 10px;
+}
+.photo-imgRoundedRight img {
+  border-top-right-radius: 10px;
+}
+.photo-imgRoundedRight ~ .photo-imgRoundedRight img {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 10px;
+}
+.content-post {
+  margin-bottom: 20px;
+}

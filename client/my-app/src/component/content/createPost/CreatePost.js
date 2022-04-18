@@ -1,15 +1,14 @@
 import React from "react";
+import useAuth from "../../../hook/useAuth";
 import "./createPostStyle.css";
 const CreatePost = (props) => {
+  const { auth } = useAuth();
   return (
     <>
       <div className="content-createPost">
         <div className="content-statusPost">
           <div className="content-statusUser">
-            <img
-              src="https://luv.vn/wp-content/uploads/2021/07/hinh-nen-Pikachu-Cute-2.jpg"
-              alt=""
-            />
+            {auth?.avatar && <img src={`${auth.url}/${auth.avatar}`} alt="" />}
           </div>
           <div
             className="content-statusContent"

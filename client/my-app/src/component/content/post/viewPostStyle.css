@@ -1,0 +1,27 @@
+.viewPost {
+  height: 100vh;
+  overflow-y: scroll;
+  padding: 0;
+}
+/* Track */
+.viewPost::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Handle */
+.viewPost::-webkit-scrollbar-thumb {
+  background-color: transparent;
+  border-radius: 5px;
+  transition: all 0.3s;
+}
+.viewPost:hover::-webkit-scrollbar-thumb {
+  height: 200px;
+  background-color: rgb(198, 198, 198);
+}
+/* Handle on hover */
+.viewPost::-webkit-scrollbar-thumb:hover {
+  background: rgb(180, 179, 179);
+}
+.viewPost .content-main {
+  margin-top: 100px;
+}

@@ -1,6 +1,9 @@
-import axios from "axios";
+import axios from "../../../api/axios";
 import React, { useEffect, useRef, useState } from "react";
 import "./createContentPostStyle.css";
+import useAuth from "../../../hook/useAuth";
+import Overlay from "../../overlay/Overlay";
+import Terms from "../../terms/Terms";
 const CreateContentPost = (props, ref) => {
   const [upload, setUpload] = useState(false);
   const [selectedImage, setSelectedImage] = useState(null);
@@ -16,27 +19,49 @@ const CreateContentPost = (props, ref) => {
   const [postText, setPostText] = useState(false);
   const [postFile, setPostFile] = useState(false);
   const [postImage, setPostImage] = useState(false);
+  const [checkTerm, setCheckTerm] = useState(false);
+  const [newPost, setNewPost] = useState([]);
+  //check Terms
+  const [clickTerm, setClickTerm] = useState(false);
   const textareaRef = useRef();
   const post = postText || postFile || postImage;
+  const { auth } = useAuth();
   const handlePost = (e) => {
     if (!post) {
       e.preventDefault();
     } else {
-      const idea = {
-        file: [selectedFile?.name || null],
-        content: text,
-        category: "Bussiness",
-        like: [],
-        dislike: [],
-        comment: [],
-      };
+      const formData = new FormData();
+      formData.append("img", selectedImage ? selectedImage : null);
+      formData.append("file", selectedFile ? selectedFile : null);
+      formData.append("content", text);
+      formData.append("private", status === "private" ? true : false);
+      formData.append("category", auth.category);
       async function Post() {
         try {
           const response = await axios({
             method: "post",
-            url: "http://localhost:5000/create-idea",
-            data: idea,
+            url: "/idea",
+            data: formData,
+            headers: { "Content-Type": "multipart/form-data" },
           });
+          const idea = {
+            id: response.data._id,
+            time: "now",
+            content: text,
+            comment: [],
+            like: [],
+            dislike: [],
+            isDisLiked: false,
+            isLiked: false,
+            private: status === "private" ? true : false,
+            img: response.data.img,
+            user: auth,
+          };
+          document.body.classList.remove("active");
+          props.posts.unshift(idea);
+          props.setPosts(props.posts);
+          props.setCreateIdea(false);
+          setNewPost(response);
         } catch (error) {
           console.log(error);
         }
@@ -85,6 +110,12 @@ const CreateContentPost = (props, ref) => {
   const handleChooseStatus = () => {
     setChooseStatus(true);
   };
+  const handleTerm = (e) => {
+    if (e.target.checked) {
+      setClickTerm(true);
+    }
+    setCheckTerm(e.target.checked);
+  };
   useEffect(() => {
     return () => {
       selectedImage && URL.revokeObjectURL(selectedImage.image);
@@ -96,6 +127,20 @@ const CreateContentPost = (props, ref) => {
   }, [props.file, props.image]);
   return (
     <div className="createContentPost" ref={ref}>
+      <div
+        className="createContentPost-term"
+        style={{
+          opacity: clickTerm ? 1 : 0,
+          visibility: clickTerm ? "visible" : "hidden",
+        }}
+      >
+        <Overlay>
+          <Terms
+            setCheckTerm={setCheckTerm}
+            setClickTerm={setClickTerm}
+          ></Terms>
+        </Overlay>
+      </div>
       <div
         className="createContentPost-chooseStatus"
         style={{
@@ -182,13 +227,10 @@ const CreateContentPost = (props, ref) => {
           <div className="createContentPost-top">
             <div className="createContentPost-topLeft">
               <div className="createContentPost-imgUser">
-                <img
-                  src="https://luv.vn/wp-content/uploads/2021/07/hinh-nen-Pikachu-Cute-2.jpg"
-                  alt=""
-                />
+                <img src={`${auth.url}/${auth.avatar}`} alt="avatar" />
               </div>
               <div className="createContentPost-info">
-                <p>Huy Thac</p>
+                <p>{auth.name}</p>
                 <div
                   className="createContentPost-status"
                   onClick={handleChooseStatus}
@@ -333,10 +375,28 @@ const CreateContentPost = (props, ref) => {
                 </span>
               </div>
             </div>
+            <div className="createContentPost-terms">
+              <input
+                type="checkbox"
+                value={checkTerm}
+                checked={checkTerm}
+                onChange={(e) => handleTerm(e)}
+              />
+              <span>
+                Accept our{" "}
+                <span
+                  onClick={() => {
+                    setClickTerm(true);
+                  }}
+                >
+                  terms and conditions
+                </span>
+              </span>
+            </div>
             <div className="createContentPost-post">
               <button
                 onClick={handlePost}
-                className={`${post ? "active" : ""}`}
+                className={`${post && checkTerm ? "active" : ""}`}
               >
                 Post
               </button>

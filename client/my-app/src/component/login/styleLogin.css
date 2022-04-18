@@ -201,3 +201,16 @@
   font-size: 14px;
   margin-top: 5px;
 }
+/* MAX-WIDTH: 576PX */
+@media screen and (max-width: 576px) {
+  .login {
+    width: 100%;
+    right: 0;
+    padding: 20px;
+    height: 100vh;
+    border-radius: 0px;
+  }
+  .login .login-socials {
+    display: none;
+  }
+}

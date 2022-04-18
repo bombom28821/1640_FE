@@ -1,0 +1,244 @@
+.personalPage-top {
+  width: 100%;
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  padding-top: 100px;
+  background-color: var(--color-white-1);
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+.personalPage-topMain {
+  width: 908px;
+  display: flex;
+  justify-content: space-between;
+  margin-top: auto;
+  align-items: center;
+  padding-bottom: 50px;
+}
+.personalPage-topLeft {
+  display: flex;
+  column-gap: 20px;
+  align-items: center;
+}
+.personalPage-leftAvatar {
+  width: 168px;
+  object-fit: cover;
+  height: 168px;
+  border-radius: 100rem;
+}
+.personalPage-leftAvatar img {
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  object-fit: inherit;
+}
+.personalPage-leftUsername h1 {
+  font-weight: 700;
+  margin-bottom: 0;
+}
+.personalPage-leftUsername span {
+  color: #65676b;
+  font-weight: 500;
+}
+.personalPage-topRight {
+  display: flex;
+  column-gap: 10px;
+}
+.personalPage-rightItem {
+  padding: 10px 12px;
+  border-radius: 8px;
+  font-weight: 500;
+  word-wrap: break-word;
+  cursor: pointer;
+  transition: all 0.3s;
+  display: flex;
+  column-gap: 7px;
+  text-decoration: none;
+  color: #050505;
+}
+
+.personalPage-rightItem:first-child {
+  background-color: #1b74e4;
+  color: var(--color-white-1);
+}
+.personalPage-rightItem:last-child {
+  background-color: #e4e6eb;
+}
+.personalPage-rightItem:last-child:hover {
+  color: #050505;
+}
+.personalPage-bottom {
+  width: 100%;
+  padding: 20px 0;
+  display: flex;
+  justify-content: center;
+}
+.personalPage-bottomMain {
+  display: flex;
+  flex-direction: row;
+  column-gap: 20px;
+}
+.personalPage-bottomLeft {
+  width: 380px;
+  height: 100%;
+}
+.personalPage-bottomLeftMain {
+  position: sticky;
+  top: 76px;
+}
+.personalPage-bottomRight {
+  width: 528px;
+}
+.personalPage-bottomIntro {
+  width: 100%;
+  height: 340px;
+  background-color: var(--color-white-1);
+  border-radius: 10px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  padding: 15px;
+  margin-bottom: 20px;
+  border: 1px solid #dfe1e3;
+}
+.personalPage-bottomIntroMain {
+  display: flex;
+  flex-direction: column;
+}
+.personalPage-bottomIntroMain h3 {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+.personalPage-bottomItem {
+  display: flex;
+  align-items: center;
+}
+.personalPage-bottomItem:not(:nth-child(4)) {
+  margin-bottom: 20px;
+}
+.personalPage-bottomItem span:first-child {
+  font-size: 20px;
+  color: #919397;
+  padding-right: 12px;
+}
+.personalPage-bottomItem span:nth-child(2) {
+  padding-right: 5px;
+}
+.personalPage-bottomItem span:last-child {
+  font-weight: 600;
+  transition: all 0.3s;
+  cursor: pointer;
+}
+.personalPage-bottomItem span:last-child:hover {
+  text-decoration: underline;
+}
+.personal-bottomIntroEdit,
+.personal-bottomIntroView {
+  width: 100%;
+  padding: 10px 0;
+  background-color: #e4e6eb;
+  border-radius: 8px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-decoration: none;
+  color: #050505;
+}
+.personal-bottomIntroView {
+  margin: 10px 0 25px;
+}
+.personal-bottomIntroEdit:hover,
+.personal-bottomIntroView:hover {
+  background-color: rgba(0, 0, 0, 0.17);
+  color: #050505;
+}
+.personal-bottomIntroEdit span,
+.personal-bottomIntroView span {
+  font-weight: 500;
+}
+.personalPage-bottomPhotos {
+  width: 100%;
+  padding: 15px;
+  background-color: var(--color-white-1);
+  border: 1px solid #dfe1e3;
+  border-radius: 10px;
+  height: 490px;
+}
+.photo-scroll {
+  overflow-y: scroll;
+}
+/* Track */
+.photo-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Handle */
+.photo-scroll::-webkit-scrollbar-thumb {
+  background-color: transparent;
+  border-radius: 5px;
+  transition: all 0.3s;
+}
+.photo-scroll:hover::-webkit-scrollbar-thumb {
+  height: 50px;
+  background-color: rgb(198, 198, 198);
+}
+/* Handle on hover */
+.photo-scroll::-webkit-scrollbar-thumb:hover {
+  background: rgb(180, 179, 179);
+}
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* MAX-WIDTH: 950PX */
+@media screen and (max-width: 950px) {
+  .personalPage-top {
+    height: 460px;
+  }
+  .personalPage-topMain {
+    flex-direction: column;
+    row-gap: 20px;
+  }
+  .personalPage-topLeft {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  }
+  .personalPage-leftUsername {
+    margin-top: 10px;
+  }
+  .personalPage-leftUsername h1 {
+    margin-bottom: 5px;
+  }
+  .personalPage-bottomMain {
+    flex-direction: column;
+  }
+  .personalPage-bottomLeft {
+    width: 528px;
+    margin-bottom: 20px;
+  }
+}
+
+/* MAX-WIDTH: 576PX */
+@media screen and (max-width: 576px) {
+  .personalPage-bottomMain,
+  .personalPage-bottomLeft,
+  .personalPage-bottomRight {
+    width: 100%;
+  }
+}

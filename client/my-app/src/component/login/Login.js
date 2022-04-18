@@ -1,20 +1,31 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./styleLogin.css";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
-import axios from "axios";
+import axios from "../../api/axios";
+import { useNavigate } from "react-router-dom";
+import useAuth from "../../hook/useAuth";
+const URL = "http://localhost:5000";
 const Login = () => {
   const [openEye, setOpenEye] = useState(false);
+  const navigate = useNavigate();
   const handleOpenEye = () => {
     setOpenEye(!openEye);
   };
   const handleSubmit = async (values) => {
-    console.log(values);
-    // const response = await axios.post(
-    //   "http://localhost:5000/login",
-    //   values.email
-    // );
-    // console.log(response);
+    try {
+      const response = await axios.post("/login", values);
+      console.log(response.data.token);
+      if (response?.data?.token) {
+        localStorage.setItem("token", response.data.token);
+        response.data.user.url = URL;
+        localStorage.setItem("user", JSON.stringify(response.data.user));
+        navigate("/");
+        window.location.reload();
+      }
+    } catch (error) {
+      console.log(`The error happend ${error}`);
+    }
   };
   return (
     <div style={{ position: "relative" }}>
@@ -54,7 +65,7 @@ const Login = () => {
               method="post"
               className="form"
               id="form1"
-              autoComplete="off"
+              // autoComplete="off"
             >
               <p>Login</p>
               <div className="form-group">
