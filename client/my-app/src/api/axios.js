@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export default axios.create({
-  baseURL: "http://localhost:5000",
+  baseURL: "https://back-end-1640.herokuapp.com",
   headers: {
     Authorization: localStorage.getItem("token"),
   },
