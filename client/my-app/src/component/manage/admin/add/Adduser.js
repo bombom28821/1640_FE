@@ -175,15 +175,17 @@ const AddUser = (props) => {
                   <div className="addUser-input">
                     <select className="role" onChange={handleChangeRole}>
                       {categories.length > 0 &&
-                        categories.map((category) => (
-                          <option
-                            value={category._id}
-                            key={category._id}
-                            selected={category._id === typeDepartment}
-                          >
-                            {category.name}
-                          </option>
-                        ))}
+                        categories.map((category) => {
+                          return category.name === "Notification" ? null : (
+                            <option
+                              value={category._id}
+                              key={category._id}
+                              selected={category._id === typeDepartment}
+                            >
+                              {category.name}
+                            </option>
+                          );
+                        })}
                     </select>
                   </div>
                 )}

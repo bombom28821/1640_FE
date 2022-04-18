@@ -52,7 +52,7 @@ const PersonalPage = () => {
         const response = await axios.get(`/idea?page=${page}`);
         if (response.data) {
           setTimeout(() => {
-            setPosts([...posts, ...response.data]);
+            setPosts([...posts, ...response.data.data]);
             setLoading(false);
           }, 300);
         }

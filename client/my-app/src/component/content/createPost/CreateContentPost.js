@@ -46,7 +46,7 @@ const CreateContentPost = (props, ref) => {
           });
           const idea = {
             id: response.data._id,
-            time: "now",
+            time: "Just now",
             content: text,
             comment: [],
             like: [],
@@ -55,7 +55,12 @@ const CreateContentPost = (props, ref) => {
             isLiked: false,
             private: status === "private" ? true : false,
             img: response.data.img,
-            user: auth,
+            user: response.data.private
+              ? {
+                  name: "Anonymouse",
+                  avatar: `public/avatar/anonymouse.png`,
+                }
+              : auth,
           };
           document.body.classList.remove("active");
           props.posts.unshift(idea);
